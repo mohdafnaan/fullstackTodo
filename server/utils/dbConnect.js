@@ -1,0 +1,15 @@
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
+
+async function dbConnect() {
+    try {
+        let uri = process.env.DBURI;
+        await mongoose.connect(uri);
+        console.log(`data base connected sucessfully`)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+dbConnect()

@@ -40,7 +40,8 @@ router.put("/update/:id",async (req,res)=>{
     try {
         let id = req.params.id
         let userinput = req.body;
-        await todoModel.updateOne({_id : id},{$set:{title : userinput}})
+        console.log(userinput)
+        await todoModel.updateOne({_id : id},{$set:userinput})
         res.status(200).json({msg : "todo updated sucessfully"})
     } catch (error) {
         console.log(error)
